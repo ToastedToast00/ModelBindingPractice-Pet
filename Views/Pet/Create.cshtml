@@ -1,0 +1,37 @@
+﻿@model Pet
+@{
+	// Give title to the webpage on the layout page
+	ViewData["Title"] = "Create Pet";
+}
+
+<h2>Create a new Pet listing</h2>
+
+<form method="post">
+	<label asp-for="Name"></label>
+		<input asp-for="Name" />
+		<span asp-validation-for="Name"></span>
+		<br />
+
+	<label asp-for="Species"></label>
+		<input asp-for="Species" />
+		<span asp-validation-for="Species"></span>
+		<br />
+
+	<label asp-for="Age"></label>
+		<input asp-for="Age" type="number" />
+		<span asp-validation-for="Age"></span>
+		<br />
+
+	<label asp-for="IsFixed"></label>
+		<input asp-for="IsFixed" type="checkbox" />
+		<span asp-validation-for="IsFixed"></span>
+		<br />
+
+	<input type="submit" value="List Pet" />
+</form>
+
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
